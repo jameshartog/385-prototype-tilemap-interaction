@@ -9,6 +9,7 @@ public class TestBallWallChange : MonoBehaviour
     Vector3[] area;
     public Tile new_tile0;
     public Tile new_tile2;
+    public Tile door;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GetPlusArea(transform.position);
@@ -23,6 +24,10 @@ public class TestBallWallChange : MonoBehaviour
             else if (floor_tilemap.GetTile(tile_loc) == new_tile2)
             {
                 floor_tilemap.SetTile(tile_loc, new_tile0);
+            }
+            else if (floor_tilemap.GetTile(tile_loc) == door)
+            {
+                floor_tilemap.SetTile(tile_loc, null);
             }
         }
     }
